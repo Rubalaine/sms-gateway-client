@@ -11,9 +11,13 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FeedbackModule} from "./feedback/feedback.module";
+import { NZ_CONFIG, NzConfig } from 'ng-zorro-antd/core/config';
 
 registerLocaleData(pt);
 
+const ngZorroConfig: NzConfig = {
+  message: { nzDuration: 5000}
+}
 @NgModule({
   declarations: [
     AppComponent
@@ -27,7 +31,8 @@ registerLocaleData(pt);
     FeedbackModule
   ],
   providers: [
-    {provide: NZ_I18N, useValue: pt_BR}
+    {provide: NZ_I18N, useValue: pt_BR},
+    { provide: NZ_CONFIG, useValue: ngZorroConfig }
   ],
   bootstrap: [AppComponent]
 })
