@@ -1,0 +1,22 @@
+<div class="auth-wrapper">
+  <div class="auth-container">
+    <nz-card nzBorderless>
+      <form nz-form nzLayout="vertical" class="u-text-center" [formGroup]="form">
+        <h3 nz-typography>Conecte-se a sua conta {{APP.DEFAULT_NAME}}</h3>
+        <nz-form-item>
+          <nz-form-label nzFor="phone">Numéro de célular</nz-form-label>
+          <nz-form-control [nzErrorTip]="form.controls['phone'].errors?.['message']">
+            <nz-input-group nzAddOnBefore="+258">
+              <input nz-input id="phone" placeholder="Numéro de celular" formControlName="phone"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <button nzType="primary" [nzLoading]="loading" nz-button (click)="login()">Entrar</button>
+        </nz-form-item>
+        <p nz-typography>Não tem uma conta? <a routerLink="../{{ROUTE.SIGNUP}}">Criar conta</a></p>
+
+      </form>
+    </nz-card>
+  </div>
+</div>

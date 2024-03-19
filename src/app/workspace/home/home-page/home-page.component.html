@@ -1,0 +1,11 @@
+<div class="home-container">
+  <h4 nz-typography class="home-title">Bem vindo ao {{APP.DEFAULT_NAME}}, {{username}}</h4>
+  <div class="card-list">
+    <app-route-card [route]="'../'+ROUTES.USERS" icon="team" title="Utilizadores"></app-route-card>
+    <app-route-card [route]="'../'+ROUTES.GROUPS" icon="solution" title="Grupos"></app-route-card>
+    <app-route-card [route]="'../'+ROUTES.MESSAGES" icon="message" title="Mensagens"></app-route-card>
+    <app-route-card [route]="'../'+ROUTES.SERVICES" icon="apartment" title="Serviços"></app-route-card>
+    <app-route-card [route]="'../'+ROUTES.SETTINGS" icon="setting" title="Definições"></app-route-card>
+    <app-route-card [route]="'../'+ROUTES.ACCOUNT" icon="user" title="Minha conta"></app-route-card>
+  </div>
+</div>

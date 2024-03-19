@@ -1,0 +1,40 @@
+<div class="auth-wrapper">
+  <div class="auth-container">
+    <nz-card nzBorderless>
+      <form nz-form nzLayout="vertical" [formGroup]="form">
+        <h3 nz-typography class="u-text-center">Criar conta {{APP.DEFAULT_NAME}}</h3>
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="name">Nome completo</nz-form-label>
+          <nz-form-control [nzErrorTip]="form.controls['name'].errors?.['message']">
+            <input nz-input placeholder="Nome completo" id="name" formControlName="name"/>
+          </nz-form-control>
+        </nz-form-item>
+        <!--        Numero de celular-->
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="phone">Número de celular</nz-form-label>
+          <nz-form-control [nzErrorTip]="form.controls['phone'].errors?.['message']">
+            <input nz-input placeholder="Número de celular" id="phone" formControlName="phone"/>
+          </nz-form-control>
+        </nz-form-item>
+        <!--        Localização-->
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="location">Localização</nz-form-label>
+          <nz-form-control [nzErrorTip]="form.controls['location'].errors?.['message']">
+            <input nz-input placeholder="Localização" id="location" formControlName="location"/>
+          </nz-form-control>
+        </nz-form-item>
+        <!--        Billhete de identidade-->
+        <nz-form-item>
+          <nz-form-label nzFor="document">Bilhete de identidade</nz-form-label>
+          <nz-form-control [nzErrorTip]="form.controls['document'].errors?.['message']">
+            <input nz-input placeholder="Bilhete de identidade" id="document" formControlName="document"/>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <button nzType="primary" nz-button (click)="signup()">Criar conta</button>
+        </nz-form-item>
+        <p nz-typography class="u-text-center">Já tem uma conta? <a routerLink="../{{ROUTE.LOGIN}}">Entrar</a></p>
+      </form>
+    </nz-card>
+  </div>
+</div>
