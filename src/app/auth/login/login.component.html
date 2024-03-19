@@ -1,21 +1,30 @@
 <div class="auth-wrapper">
   <div class="auth-container">
     <nz-card nzBorderless>
-      <form nz-form nzLayout="vertical" class="u-text-center" [formGroup]="form">
-        <h3 nz-typography>Conecte-se a sua conta {{APP.DEFAULT_NAME}}</h3>
+      <form nz-form nzLayout="vertical"  [formGroup]="form">
+        <h3 nz-typography class="u-text-center">Conecte-se a sua conta</h3>
+        <!-- username -->
         <nz-form-item>
-          <nz-form-label nzFor="phone">Numéro de célular</nz-form-label>
-          <nz-form-control [nzErrorTip]="form.controls['phone'].errors?.['message']">
-            <nz-input-group nzAddOnBefore="+258">
-              <input nz-input id="phone" placeholder="Numéro de celular" formControlName="phone"/>
+          <nz-form-label nzFor="username">Nome de usuário</nz-form-label>
+          <nz-form-control [nzErrorTip]="form.controls['username'].errors?.['message']">
+            <input nz-input id="username" placeholder="Nome de usuário" formControlName="username"/>
+          </nz-form-control>
+        </nz-form-item>
+        <!-- password with hide/show button -->
+        <nz-form-item>
+          <nz-form-label nzFor="password">Palavra passe</nz-form-label>
+          <nz-form-control [nzErrorTip]="form.controls['password'].errors?.['message']" >
+            <nz-input-group [nzSuffix]="passwordSufixTpl">
+              <input nz-input id="password" [type]="passwordVisible ? 'text' : 'password'" placeholder="Palavra passe" formControlName="password"/>
             </nz-input-group>
+            <ng-template #passwordSufixTpl>
+              <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
+            </ng-template>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
           <button nzType="primary" [nzLoading]="loading" nz-button (click)="login()">Entrar</button>
         </nz-form-item>
-        <p nz-typography>Não tem uma conta? <a routerLink="../{{ROUTE.SIGNUP}}">Criar conta</a></p>
-
       </form>
     </nz-card>
   </div>

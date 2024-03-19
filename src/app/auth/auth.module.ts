@@ -13,7 +13,8 @@ import {OtpComponent} from './otp/otp.component';
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {ReactiveFormsModule} from "@angular/forms";
 import {CustomValidator} from "../shared/class/custom-validator";
-
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import {CustomValidator} from "../shared/class/custom-validator";
     NzButtonModule,
     NzTypographyModule,
     NzInputNumberModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzIconModule,
+    NzMessageModule
   ],
   providers: [CustomValidator]
 })
