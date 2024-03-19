@@ -1,3 +1,3 @@
 export const APP = {
-  DEFAULT_NAME: 'BOB',
+  DEFAULT_NAME: 'SISTEMA DE ENVIO DE ALERTAS',
 }
