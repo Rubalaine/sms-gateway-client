@@ -7,19 +7,27 @@ import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {NzCardModule} from "ng-zorro-antd/card";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import { RouteCardComponent } from './route-card/route-card.component';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzListModule } from 'ng-zorro-antd/list';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { StatusToColorPipe } from 'src/app/shared/pipes/status-to-color.pipe';
 
 
 @NgModule({
   declarations: [
     HomePageComponent,
-    RouteCardComponent
+    RouteCardComponent,
+    StatusToColorPipe
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     NzTypographyModule,
     NzCardModule,
-    NzIconModule
+    NzIconModule,
+    NzTabsModule,
+    NzListModule,
+    NzTagModule
   ]
 })
 export class HomeModule { }
