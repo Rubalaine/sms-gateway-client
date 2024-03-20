@@ -21,6 +21,7 @@
           </nz-list-item-meta>
           <nz-tag nzColor="{{appointment.status | status_to_color}}">{{appointment.status}}</nz-tag>
         </nz-list-item>
+        <nz-list-empty *ngIf="appointments.length === 0"></nz-list-empty>
       </nz-list>
     </nz-tab>
   </nz-tabset>
