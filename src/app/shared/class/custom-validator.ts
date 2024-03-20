@@ -18,6 +18,14 @@ export class CustomValidator {
       return null;
     }
   }
+  blankDateValidator( errorMessage = 'This field should not be empty'): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if(!control.value){
+        return this.errorMessageFormat(errorMessage)
+      }
+      return null;
+    }
+  }
   errorMessageFormat(message: string): { message: string } {
     return {message}
   }
