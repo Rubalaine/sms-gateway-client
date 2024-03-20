@@ -33,4 +33,8 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!this.getUser();
   }
+  getToken(): string {
+    const user = this.getUser();
+    return user ? user.token : '';
+  }
 }
