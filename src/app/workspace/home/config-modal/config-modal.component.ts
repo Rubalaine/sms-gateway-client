@@ -13,6 +13,9 @@ import { FormService } from 'src/app/shared/services/form.service';
 export class ConfigModalComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   subscriptions: Subscription[] = [];
+  loading = false;
+  saving = false;
+
   constructor(
     private modalRef: NzModalRef,
     private fb: FormBuilder,
@@ -21,19 +24,26 @@ export class ConfigModalComponent implements OnInit, OnDestroy {
   ) { 
     this.modalRef.updateConfig({
       nzTitle: 'Configurações de agendamento',
-      nzOkText: 'Guardar',
     });
   }
-  save() {}
+  save() {
+    if (this.formService.isFormValid(this.form)) {
+      console.table(this.form.value);
+      return;
+    }
+  }
+  close() {
+    this.modalRef.destroy();
+  }
   ngOnInit(): void {
     this.buildForm();
   }
   buildForm() {
     this.form = this.fb.group({
       scheduled_message: [null, [this.customValidator.blankFieldValidator("Insira a mensagem de agendamento")]],
-      scheduled_time: [null, [this.customValidator.blankFieldValidator("Insira a hora de agendamento")]],
+      scheduled_time: [null, [this.customValidator.blankDateValidator("Insira a hora de agendamento")]],
       delayed_message: [null, [this.customValidator.blankFieldValidator("Insira a mensagem de atraso")]],
-      delayed_time: [null, [this.customValidator.blankFieldValidator("Insira a hora de atraso")]],
+      delayed_time: [null, [this.customValidator.blankDateValidator("Insira a hora de atraso")]],
     })
   }
   ngOnDestroy(): void {
