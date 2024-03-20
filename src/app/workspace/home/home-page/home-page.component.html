@@ -1,5 +1,15 @@
 <div class="home-container">
-  <h4 nz-typography class="home-title">Mensagens agendadas</h4>
+  <div nz-row nzJustify="space-between">
+    <div nz-col>
+      <h4 nz-typography class="home-title">Mensagens agendadas</h4>
+    </div>
+    <div nz-col>
+      <!-- config icon button -->
+      <button nz-button  nzSize="small" nz-tooltip nzTitle="Configurações" (click)="openConfigModal()">
+        <i nz-icon nzType="setting" nzTheme="outline"></i>
+      </button>
+    </div>
+  </div>
   <nz-tabset nzType="card">
     <nz-tab *ngFor="let config of appointmentsConfig" [nzTitle]="config.title" (nzSelect)="config.onclick()">
       <nz-list nzItemLayout="horizontal" [nzLoading]="loading">

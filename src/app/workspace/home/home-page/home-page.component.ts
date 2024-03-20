@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { HomeService } from '../shared/services/home.service';
 import { DateService } from 'src/app/shared/services/date.service';
 import { IAppointment } from 'src/app/shared/types/appointment-type';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { ConfigModalComponent } from '../config-modal/config-modal.component';
 
 @Component({
   selector: 'app-home-page',
@@ -24,7 +26,8 @@ export class HomePageComponent implements OnDestroy, OnInit {
   ]
   constructor(
     private homeService: HomeService,
-    private dateService: DateService
+    private dateService: DateService,
+    private modalService: NzModalService
   ) {
   }
 
@@ -78,6 +81,11 @@ export class HomePageComponent implements OnDestroy, OnInit {
     endDate.setDate(endDate.getDate() + 9);
     startDate.setDate(startDate.getDate() + 2);
     this.loadAppointmentsByRange(this.dateService.dateToServerDate(startDate), this.dateService.dateToServerDate(endDate));
+  }
+  openConfigModal() {
+    const modal = this.modalService.create({
+      nzContent: ConfigModalComponent
+    })
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());

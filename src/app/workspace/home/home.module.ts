@@ -11,13 +11,23 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { StatusToColorPipe } from 'src/app/shared/pipes/status-to-color.pipe';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { ConfigModalComponent } from './config-modal/config-modal.component';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { CustomValidator } from 'src/app/shared/class/custom-validator';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
 
 
 @NgModule({
   declarations: [
     HomePageComponent,
     RouteCardComponent,
-    StatusToColorPipe
+    StatusToColorPipe,
+    ConfigModalComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +37,15 @@ import { StatusToColorPipe } from 'src/app/shared/pipes/status-to-color.pipe';
     NzIconModule,
     NzTabsModule,
     NzListModule,
-    NzTagModule
-  ]
+    NzTagModule,
+    NzGridModule,
+    NzButtonModule,
+    NzModalModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    NzInputModule,
+    NzTimePickerModule
+  ],
+  providers: [CustomValidator]
 })
 export class HomeModule { }
