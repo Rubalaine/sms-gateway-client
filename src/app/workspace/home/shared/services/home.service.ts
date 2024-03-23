@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IAppointment } from 'src/app/shared/types/appointment-type';
+import { IConfig } from 'src/app/shared/types/config-type';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -12,6 +13,7 @@ export class HomeService {
   patients = `${this.api}/patients`;
   doctors = `${this.api}/doctors`;
   appointments = `${this.api}/appointments`;
+  config = `${this.api}/config`;
 
   constructor(
     private http: HttpClient
@@ -22,5 +24,11 @@ export class HomeService {
   }
   getAppointmentsByRange(startDate: string, endDate: string): Observable<IAppointment[]> {
     return this.http.get<IAppointment[]>(`${this.appointments}/ranged/${startDate}/${endDate}`)
+  }
+  getConfig(): Observable<IConfig> {
+    return this.http.get<IConfig>(this.config)
+  }
+  updateConfig(config: IConfig): Observable<IConfig> {
+    return this.http.put<IConfig>(this.config, config)
   }
 }
