@@ -12,6 +12,7 @@
   </div>
   <nz-tabset nzType="card">
     <nz-tab *ngFor="let config of appointmentsConfig" [nzTitle]="config.title" (nzSelect)="config.onclick()">
+      <!-- TODO: RESOLVER CHECKED ERROR FOR THIS LOADING VARIABLE -->
       <nz-list nzItemLayout="horizontal" [nzLoading]="loading">
         <nz-list-item *ngFor="let appointment of appointments">
           <nz-list-item-meta 
