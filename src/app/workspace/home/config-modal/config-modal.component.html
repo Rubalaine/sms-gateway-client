@@ -1,4 +1,4 @@
-<div>
+<nz-spin [nzSpinning]="loading">
     <form nz-form [formGroup]="form" nzLayout="vertical">
         <!-- scheduled_message text area -->
         <nz-form-item>
@@ -29,9 +29,9 @@
             </nz-form-control>
         </nz-form-item>
     </form>
-</div>
+</nz-spin>
 <!-- modal footer -->
 <div *nzModalFooter>
-    <button nz-button nzType="default" (click)="close()">Cancelar</button>
+    <button nz-button nzType="default" [disabled]="saving" (click)="close()">Cancelar</button>
     <button nz-button nzType="primary" (click)="save()" [nzLoading]="saving">Guardar</button>
 </div>

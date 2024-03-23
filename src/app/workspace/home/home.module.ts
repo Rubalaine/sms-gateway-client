@@ -20,7 +20,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
-
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
     NzFormModule,
     ReactiveFormsModule,
     NzInputModule,
-    NzTimePickerModule
+    NzTimePickerModule,
+    NzSpinModule,
+    NzMessageModule
   ],
   providers: [CustomValidator]
 })
