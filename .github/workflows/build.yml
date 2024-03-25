@@ -1,7 +1,45 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Angular 15 Build
+# name: Angular 15 Build
+
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+
+# jobs:
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [16.x]
+#         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Cache node modules
+#       uses: actions/cache@v3
+#       with:
+#         path: ~/.npm
+#         key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+#         restore-keys: |
+#           ${{ runner.os }}-node-${{ matrix.node-version }}-
+#           ${{ runner.os }}-node-
+#           ${{ runner.os }}-
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#     - name: npm install, build
+#       run: |
+#         npm install
+#         npm run build --if-present
+
+name: Angular Build and Copy dist
 
 on:
   push:
@@ -16,8 +54,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [18.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -37,5 +74,7 @@ jobs:
     - name: npm install, build
       run: |
         npm install
-        npm run build --if-present
-
+        npm run build
+    - name: Copy dist folder to main project
+      run: |
+        cp -r dist/* .
