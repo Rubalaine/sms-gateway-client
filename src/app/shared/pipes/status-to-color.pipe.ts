@@ -12,7 +12,7 @@ export class StatusToColorPipe implements PipeTransform {
     if (status === 'COMPLETED') {
       return 'green';
     }
-    if (status === 'CANCELED') {
+    if (status === 'CANCELLED') {
       return 'red';
     }
     return '';

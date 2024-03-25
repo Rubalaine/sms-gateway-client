@@ -2,28 +2,28 @@
     <form nz-form [formGroup]="form" nzLayout="vertical">
         <!-- scheduled_message text area -->
         <nz-form-item>
-            <nz-form-label nzFor="scheduled_message">Mensagem agendada</nz-form-label>
+            <nz-form-label nzFor="scheduled_message">Mensagem de alerta (Proxíma consulta)</nz-form-label>
             <nz-form-control [nzErrorTip]="form.controls['scheduled_message'].errors?.['message']">
-                <textarea nz-input id="scheduled_message" placeholder="Mensagem agendada" formControlName="scheduled_message"></textarea>
+                <textarea nz-input id="scheduled_message" placeholder="Mensagem para consulta" formControlName="scheduled_message"></textarea>
             </nz-form-control>
         </nz-form-item>
         <!-- scheduled_time time picker -->
         <nz-form-item>
-            <nz-form-label nzFor="scheduled_time">Hora de agendamento</nz-form-label>
+            <nz-form-label nzFor="scheduled_time">Hora de envio </nz-form-label>
             <nz-form-control [nzErrorTip]="form.controls['scheduled_time'].errors?.['message']">
                 <nz-time-picker id="scheduled_time" formControlName="scheduled_time" nzFormat="HH:mm"></nz-time-picker>
             </nz-form-control>
         </nz-form-item>
         <!-- delayed_message text area -->
         <nz-form-item>
-            <nz-form-label nzFor="delayed_message">Mensagem atrasada</nz-form-label>
+            <nz-form-label nzFor="delayed_message">Mensagem de alerta (Em caso de falta)</nz-form-label>
             <nz-form-control [nzErrorTip]="form.controls['delayed_message'].errors?.['message']">
-                <textarea nz-input id="delayed_message" placeholder="Mensagem atrasada" formControlName="delayed_message"></textarea>
+                <textarea nz-input id="delayed_message" placeholder="Mensagem para falta" formControlName="delayed_message"></textarea>
             </nz-form-control>
         </nz-form-item>
         <!-- delayed_time time picker -->
         <nz-form-item>
-            <nz-form-label nzFor="delayed_time">Hora de atraso</nz-form-label>
+            <nz-form-label nzFor="delayed_time">Hora de envio </nz-form-label>
             <nz-form-control [nzErrorTip]="form.controls['delayed_time'].errors?.['message']">
                 <nz-time-picker id="delayed_time" formControlName="delayed_time"  nzFormat="HH:mm"></nz-time-picker>
             </nz-form-control>
