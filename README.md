@@ -1,27 +1,47 @@
-# sms-gateway-client
+# SMS Gateway Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+This project, **SMS Gateway Client**, is an Angular-based configuration tool for managing the SMS Gateway Node application. It provides a user-friendly interface to configure and monitor the SMS gateway.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Node.js**: Ensure Node.js is installed to run Angular.
+- **Angular CLI**: Install the Angular CLI globally using `npm install -g @angular/cli`.
+- **API Endpoint**: Ensure the SMS Gateway Node API is running and accessible.
 
-## Code scaffolding
+## Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository and navigate into the project directory.
 
-## Build
+2. Install the required dependencies:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```bash
+   npm install
+   ```
 
-## Running unit tests
+3. **Environment Configuration**:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   - Create an `environment.ts` file based on `environment.example.ts`. Update the API endpoint and any other necessary environment variables.
 
-## Running end-to-end tests
+4. **Development Mode**:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   - Run the project locally using:
+     ```bash
+     ng serve
+     ```
+   - Open [http://localhost:4200](http://localhost:4200) to view the application.
 
-## Further help
+5. **Production Build**:
+   - Generate a production build using:
+     ```bash
+     ng build --prod
+     ```
+   - The build output will be in the `dist/` directory, ready for deployment.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Scripts
+
+- `ng serve`: Starts the client application in development mode.
+- `ng build --prod`: Builds the application for production deployment.
+
+## License
+
+This project is licensed under the ISC License.
